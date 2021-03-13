@@ -7,21 +7,17 @@ ${browser}  chrome
 ${url}      http://www.practiceselenium.com/practice-form.html
 
 *** Test Cases ***
-RadioButtonValidation
+DropDownValidation
     open browser    ${url}      ${browser}
     maximize browser window
     set selenium speed    2Seconds
 
-    checkbox should not be selected    BlackTea
-    select checkbox    BlackTea
+    select from list by index    continents     2
+    sleep    2
+    select from list by label   continents      Australia
+    sleep    2
+    # select from list by value   continents    Antartica
+    # sleep    2
 
-    select checkbox    RedTea
-    sleep    3
-    unselect checkbox    RedTea
-
-    # checkbox should not be selected    id:tool-0
-    select checkbox    id:tool-0
-
-    sleep    3
     close browser
 
