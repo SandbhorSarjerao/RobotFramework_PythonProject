@@ -13,7 +13,7 @@ Count All Links on Page Test
     ${AllLinksCount}=        get element count    xpath://a
     log to console    ${AllLinksCount}
 
-    @{linkItems}    create list
+    #@{linkItems}    create list
     FOR     ${i}    IN RANGE    1       ${AllLinksCount}+1
         ${linkText}=    get text    xpath:(//a)[${i}]
         log to console    ${linkText}
