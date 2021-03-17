@@ -22,4 +22,3 @@ Invalid Login
     Input Password      ${Password}
     Click Login Button
     Error Message should be Displayed
-
