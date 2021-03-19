@@ -7,7 +7,7 @@ ${url}          https://admin-demo.nopcommerce.com/login?ReturnUrl=/admin/
 
 *** Keywords ***
 Open Chrome Browser And Enter URL
-    open browser    ${url}      ${browser}
+    open browser    ${url}  ${browser}
     maximize browser window
 
 Open Login Page
