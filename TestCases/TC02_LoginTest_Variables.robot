@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource    //Resources/Common GUI.resourse
 
 *** Variables ***
 ${browser}  chrome
