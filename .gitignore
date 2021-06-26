@@ -5,6 +5,8 @@ target
 venv*
 .venv*
 .env
+venv/
+.vscode/
 *~
 MANIFEST
 atest/results
