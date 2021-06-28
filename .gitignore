@@ -7,7 +7,6 @@ venv*
 .env
 venv/
 .vscode/
-*~
 MANIFEST
 results/*
 atest/results
