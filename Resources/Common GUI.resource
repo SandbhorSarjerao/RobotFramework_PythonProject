@@ -19,3 +19,12 @@ Click
   Wait Until Element Is Visible  //*[(self:: button or self::a or self::span) and (contains(@id, "${field}") or (. = "${field}")]
   Press keys  //*[(self:: button or self::a or self::span) and (contains(@id, "${field}") or (. = "${field}"  SPACE
   Wait For Document Ready
+
+Element Status Should Be Enabled
+  [Arguments]  ${element_text}
+  Element Should Be Visible  //*[text()='${element_text}' and not(contains(@class,'disabled'))]
+
+
+Element Status Should Be Disabled
+  [Arguments]  ${element_text}
+  Element Should Be Visible  //*[text()='${element_text}' and contains(@class,'disabled')]
