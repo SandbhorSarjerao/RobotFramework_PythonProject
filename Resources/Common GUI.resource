@@ -20,6 +20,24 @@ Click
   Press keys  //*[(self:: button or self::a or self::span) and (contains(@id, "${field}") or (. = "${field}"  SPACE
   Wait For Document Ready
 
+Select element
+  [Arguments]  ${element}  
+  wait until element is visible  xpath://*[contains(text(),'${element}')]
+  click element  xpath://*[contains(text(),'${element}')]
+
+Verify element text
+  [Arguments]  ${element}  ${text}
+  element text should be   xpath://*[contains(text(),'${text}')]  ${text}
+  
+Get element text
+  [Arguments]  ${element}
+  ${element_text}  get text  xpath://*[contains(text(),'${element}')]
+  [Return]  ${element_text}
+
+Verify element text contains
+  [Arguments]  ${element}  ${text}
+  element should contain  xpath://*[contains(text(),'${text}')]  ${text}
+  
 Select item from dropdown by partial text
   [Documentation]  the keyword selects an item from the dropdown containing text and checks that the item was selected
   [Arguments]  ${dropdown}  ${value}
@@ -27,3 +45,20 @@ Select item from dropdown by partial text
   click element  xpath://*[contains(text(),'${value}')]
   ${selected_value}=  get selected list label  ${dropdown}
   should contain  ${selected_value}  ${value}
+
+Scroll vertical bar to the bottom
+  execute javascript window.scrollBy(0,2500)
+
+Scroll vertical bar to the top
+  execute javascript window.scrollBy(0,-2500)
+
+Scroll horizontally
+  Press Keys  None  RIGHT
+
+Close browser
+  close all browsers
+
+Close all open browsers
+  close all browsers
+
+
