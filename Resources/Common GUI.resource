@@ -20,6 +20,19 @@ Click
   Press keys  //*[(self:: button or self::a or self::span) and (contains(@id, "${field}") or (. = "${field}"  SPACE
   Wait For Document Ready
 
+Enter text in field
+  [Arguments]  ${field}  ${text}
+  element text should be   xpath://*[contains(text(),'${field}')]  ${text}
+  
+Element status should be enabled
+  [Arguments]  ${element}  
+  element should be visible  xpath://*[text()='${element}' and not(contains(@class,'disabled'))]
+
+Element status should be disabled
+  [Arguments]  ${element}  
+  element should be visible  xpath://*[text()='${element}' and contains(@class,'disabled')]
+
+
 Select element
   [Arguments]  ${element}  
   wait until element is visible  xpath://*[contains(text(),'${element}')]
