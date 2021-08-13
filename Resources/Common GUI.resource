@@ -74,4 +74,23 @@ Close browser
 Close all open browsers
   close all browsers
 
+Mouse over element
+    [Arguments]  ${element}
+    Wait until element is visible   ${${current_page}.${element}}
+    mouse over  ${${current_page}.${element}}
+
+Submit ${field:(Create User|Create Contact)} form
+    wait until element is visible  ${${current_page}.Submit Button}  timeout=9 seconds
+    click button  ${${current_page}.Submit Button}
+    wait until page load indicator is visible
+
+Verify file exists
+    [Arguments]  ${filename}
+    wait until keyword succeeds  5x  1 seconds   OperatingSystem.file should exist  ${download_dir}/${filename}
+
+Remove exported file
+    @{temp}=    OperatingSystem.List Files In Directory     ${download_dir}
+    FOR    ${item}     IN    @{temp}
+        OperatingSystem.move file  ${download_dir}/${item}  ${download_dir}/archive/${item}
+    END
 
