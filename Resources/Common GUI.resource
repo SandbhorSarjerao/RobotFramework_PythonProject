@@ -32,6 +32,25 @@ Element status should be disabled
   [Arguments]  ${element}  
   element should be visible  xpath://*[text()='${element}' and contains(@class,'disabled')]
 
+Button is disabled
+    [Arguments]    ${field}
+    element attribute value should be   ${field}    class: btn btn-default btdisabled;      type: button;     style: ;
+
+Button should be disabled
+    [Arguments]      ${xpath}
+    ${elem_attr}=    get element attribute  ${${current_page}.${xpath}}  @disabled
+    run keyword and continue on failure  should be equal  ${elem_attr}  true
+
+Button is enabled
+    [Arguments]    ${field}
+    Element attribute value should be    ${id}    style    pointer-events: unset; cursor: auto; background: rgb(30, 116, 186);
+
+Button should be enabled
+    [Arguments]      ${xpath}
+    log to console  Verifying button enabled: ${xpath}..........  no_newline=true
+    ${elem_attr}=    get element attribute  ${${current_page}.${xpath}}  @disabled
+    run keyword and continue on failure  should be equal  ${elem_attr}  ${None}
+    log to console  DONE!
 
 Select element
   [Arguments]  ${element}  
