@@ -113,3 +113,12 @@ Remove exported file
         OperatingSystem.move file  ${download_dir}/${item}  ${download_dir}/archive/${item}
     END
 
+Login page should be opened
+    wait until page contains    Welcome    timeout=5seconds
+    set suite variable    ${current_page}    LoginPage
+
+
+Logout from application
+    wait until element is visible    xpath://*[contains(text(),'logout')]    timeout=5seconds
+    wait until keyword succeeds    5x    1seconds    click element    xpath://*[contains(text(),'logout')]   
+    Login page should be opened
