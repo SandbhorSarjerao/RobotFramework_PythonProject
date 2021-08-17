@@ -52,6 +52,11 @@ Button should be enabled
     run keyword and continue on failure  should be equal  ${elem_attr}  ${None}
     log to console  DONE!
 
+Click-on button
+    [Arguments]      ${xpath}
+    ${element}=    Get WebElement    ${xpath}
+    Execute JavaScript    arguments[0].click();    ARGUMENTS    ${element}
+
 Select element
   [Arguments]  ${element}  
   wait until element is visible  xpath://*[contains(text(),'${element}')]
