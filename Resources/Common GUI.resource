@@ -98,6 +98,10 @@ Close browser
 Close all open browsers
   close all browsers
 
+Dropdown options are
+    [Arguments]    ${field}    @{options}
+    ${observed}      Get List Items    //select[contains(@id, "${field}")]
+
 Mouse over element
     [Arguments]  ${element}
     Wait until element is visible   ${${current_page}.${element}}
@@ -107,6 +111,12 @@ Submit ${field:(Create User|Create Contact)} form
     wait until element is visible  ${${current_page}.Submit Button}  timeout=9 seconds
     click button  ${${current_page}.Submit Button}
     wait until page load indicator is visible
+
+Verify all the buttons are enabled on screen
+    element should be enabled  //button[contains(text(),'Cancel')]
+    element should be visible  //button[contains(text(),'Reset')]
+    element should be enabled  //button[contains(text(),'Submit')]
+    element should be enabled  frmCloseId
 
 Verify file exists
     [Arguments]  ${filename}
