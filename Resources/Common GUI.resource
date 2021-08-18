@@ -92,6 +92,9 @@ Scroll vertical bar to the top
 Scroll horizontally
   Press Keys  None  RIGHT
 
+Zoom out browser window
+  execute javascript document.body.style.zoom="75%"
+
 Close browser
   close all browsers
 
