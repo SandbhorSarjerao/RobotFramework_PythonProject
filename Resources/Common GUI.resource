@@ -131,6 +131,11 @@ Remove exported file
         OperatingSystem.move file  ${download_dir}/${item}  ${download_dir}/archive/${item}
     END
 
+If Element Present then Run Keyword
+    [Arguments]  ${element}    ${RunKeyword}
+    ${ElementPresent}=    Run Keyword And Return Status    Element Should Be Visible    ${element}
+    Run Keyword If    ${ElementPresent}    ${RunKeyword}
+
 Login page should be opened
     wait until page contains    Welcome    timeout=5seconds
     set suite variable    ${current_page}    LoginPage
